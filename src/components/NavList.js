@@ -2,16 +2,21 @@ import React, { Component } from 'react'
 
 class NavList extends Component {
     render() {
+        var userList = this.props.users
+        var updateEditContent = this.props.updateEditContent
         return (
             <div className="navList">
-                <div className="navItem">User</div>
-                <div className="navItem">User</div>
-                <div className="navItem">User</div>
-                <div className="navItem">User</div>
-                <div className="navItem">User</div>
-                <div className="navItem">User</div>
-                <div className="navItem">User</div>
-            
+
+                {userList.map(function (name, index) {
+                    return(
+                        <div className="navItem"
+                             onClick = {() => updateEditContent(index)}>
+                            {name}
+                        </div>
+                    )
+
+                })}
+
             </div>
         )
     }
